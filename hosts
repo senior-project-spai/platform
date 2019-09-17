@@ -1,6 +1,6 @@
 127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
 ::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
-192.168.212.101 node.192.168.212.101.nip.io
-192.168.212.102 master.192.168.212.102.nip.io
-192.168.212.103 infra.192.168.212.103.nip.io
-192.168.212.104 node.192.168.212.104.nip.io
+192.168.212.101 node.192.168.212.101.nip.io node1
+192.168.212.102 master.192.168.212.102.nip.io master
+192.168.212.103 infra.192.168.212.103.nip.io infra
+192.168.212.104 node.192.168.212.104.nip.io node2
