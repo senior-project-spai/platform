@@ -50,11 +50,13 @@ yum -y --enablerepo=epel install ansible.rpm
 [ ! -d openshift-ansible ] && git clone https://github.com/openshift/openshift-ansible.git
 cd openshift-ansible && git fetch && git checkout release-3.11 && cd ..
 
+cd ~
+
 mkdir -p /etc/origin/master/
 touch /etc/origin/master/htpasswd
 
-ansible-playbook -i inventory.ini openshift-ansible/playbooks/prerequisites.yml
-ansible-playbook -i inventory.ini openshift-ansible/playbooks/deploy_cluster.yml
+ansible-playbook -i ~/inventory.ini openshift-ansible/playbooks/prerequisites.yml
+ansible-playbook -i ~/inventory.ini openshift-ansible/playbooks/deploy_cluster.yml
 
 htpasswd -b /etc/origin/master/htpasswd babe 1q2w3e4r
 oc adm policy add-cluster-role-to-user cluster-admin babe
