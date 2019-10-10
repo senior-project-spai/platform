@@ -4,7 +4,7 @@ metadata:
   name: kafka-12
 spec:
   capacity:
-    storage: 5Gi
+    storage: 50Gi
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Recycle
