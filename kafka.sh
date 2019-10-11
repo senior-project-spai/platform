@@ -1,0 +1,2 @@
+oc new-project kafka
+
