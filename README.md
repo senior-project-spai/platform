@@ -1,6 +1,10 @@
 # platform
 
+give execute privillege to all script in install folder
+
 chmod +x -R install
+
+then 
 
 adjust value in setting.sh
 
