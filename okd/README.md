@@ -1,4 +1,4 @@
-# platform
+# OKD
 
 give execute privillege to all script in install folder
 

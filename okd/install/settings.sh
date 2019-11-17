@@ -36,5 +36,5 @@ export INSTALL_METRICS=False
 # Enable "True"  only one of the VM 16GB memory. 
 export INSTALL_LOGGING=False
 
-# Enter platform repository location.
-export PLATFORM_REPO_FOLDER_LOCATION=/home/babe/platform
+# Enter platform/okd repository location.
+export PLATFORM_REPO_FOLDER_LOCATION=/home/babe/platform/okd
