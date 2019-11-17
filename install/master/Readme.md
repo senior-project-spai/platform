@@ -1,1 +1,1 @@
-./install.sh
+./install_master.sh
