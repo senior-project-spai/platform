@@ -28,7 +28,7 @@ spec:
         - name: KAFKA_ZOOKEEPER_CONNECT
           value: zookeeper:2181
         - name: KAFKA_ADVERTISED_HOST_NAME
-          value: 	172.30.26.130 # may b service name or Cluster IP
+          value: 172.30.18.227 # may b service name or Cluster IP
         - name: KAFKA_CREATE_TOPICS
           value: "babe0:1:1,babe1:2:1,babe2:3:1" # Topic to create
         image: ' '

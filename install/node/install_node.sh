@@ -1,5 +1,13 @@
-cd ~
+#!/bin/bash
+
+read -p "Enter Hostname: "  HOSTNAME
+
+hostnamectl set-hostname ${HOSTNAME}
 
 ../common/prerequisites.sh
-../common/network_checker.sh
-../common/enable_docker.sh
+
+${PLATFORM_REPO_FOLDER_LOCATION}/install/common/network_checker.sh
+
+${PLATFORM_REPO_FOLDER_LOCATION}/install/common/enable_docker.sh
+
+echo "Finish"

@@ -1,3 +1,14 @@
+#!/bin/bash
+echo "Installing Prerequisites"
+
+source ../settings.sh
+
+cat >>/etc/hosts<<EOF
+${OKD_MASTER_IP} ${OKD_MASTER_HOSTNAME} console console.${DOMAIN}
+${OKD_WORKER_NODE_1_IP} ${OKD_WORKER_NODE_1_HOSTNAME}
+${OKD_WORKER_NODE_2_IP} ${OKD_WORKER_NODE_2_HOSTNAME}
+EOF
+
 # install the following base packages
 yum install -y wget
 yum install -y envsubst
@@ -22,4 +33,4 @@ yum install -y python-passlib
 yum install -y java-1.8.0-openjdk-headless "@Development Tools"
 yum install -y epel-release
 yum install -y yum-utils
-yum update
+yum update -y
