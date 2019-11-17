@@ -10,6 +10,7 @@ ${OKD_WORKER_NODE_2_IP} ${OKD_WORKER_NODE_2_HOSTNAME}
 EOF
 
 # install the following base packages
+yum update -y
 yum install -y wget
 yum install -y envsubst
 yum install -y figlet
@@ -33,4 +34,3 @@ yum install -y python-passlib
 yum install -y java-1.8.0-openjdk-headless "@Development Tools"
 yum install -y epel-release
 yum install -y yum-utils
-yum update -y
