@@ -1,0 +1,1 @@
+ansible-playbook -i ~/inventory.ini openshift-ansible/playbooks/prerequisites.yml
