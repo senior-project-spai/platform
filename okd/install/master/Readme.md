@@ -6,17 +6,11 @@ sudo yum install -y git
 
 git clone https://github.com/senior-project-spai/platform
 
-cd platform/okd
+sudo chmod +x -R platform/okd/install
 
-sudo chmod +x -R install
+source platform/okd/install/settings.sh
 
-cd install
-
-source settings.sh
-
-cd ~/platform/okd/install/master
-
-./add_hosts.sh
+platform/okd/install/add_hosts.sh
 
 ssh-copy-id root@${OKD_MASTER_HOSTNAME}
 ssh-copy-id root@${OKD_WORKER_NODE_1_HOSTNAME}
@@ -25,8 +19,8 @@ ssh-copy-id root@${OKD_WORKER_NODE_3_HOSTNAME}
 ssh-copy-id root@${OKD_WORKER_NODE_4_HOSTNAME}
 ssh-copy-id root@${OKD_WORKER_NODE_5_HOSTNAME}
 
-sudo ../install_pre.sh
+sudo platform/okd/install/install_pre.sh
 
-sudo ./install_ansible.sh
+sudo platform/okd/install/master/install_ansible.sh
 
-./install_master.sh
+platform/okd/install/master/install_master.sh
