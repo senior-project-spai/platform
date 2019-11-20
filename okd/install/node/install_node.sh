@@ -14,38 +14,32 @@ echo "Installing Prerequisites"
 # ${OKD_WORKER_NODE_5_IP} ${OKD_WORKER_NODE_5_HOSTNAME}
 # EOF
 
-echo "${OKD_MASTER_IP} ${OKD_MASTER_HOSTNAME} console console.${DOMAIN}" | sudo tee -a /etc/hosts
-echo "${OKD_WORKER_NODE_1_IP} ${OKD_WORKER_NODE_1_HOSTNAME}" | sudo tee -a /etc/hosts
-echo "${OKD_WORKER_NODE_2_IP} ${OKD_WORKER_NODE_2_HOSTNAME}" | sudo tee -a /etc/hosts
-echo "${OKD_WORKER_NODE_3_IP} ${OKD_WORKER_NODE_3_HOSTNAME}" | sudo tee -a /etc/hosts
-echo "${OKD_WORKER_NODE_4_IP} ${OKD_WORKER_NODE_4_HOSTNAME}" | sudo tee -a /etc/hosts
-echo "${OKD_WORKER_NODE_5_IP} ${OKD_WORKER_NODE_5_HOSTNAME}" | sudo tee -a /etc/hosts
 
 # install the following base packages
-yum update -y
-yum install -y wget
-yum install -y envsubst
-yum install -y figlet
-yum install -y git
-yum install -y zile
-yum install -y nano
-yum install -y net-tools
-yum install -y docker-1.13.1
-yum install -y bind-utils iptables-services
-yum install -y bridge-utils bash-completion
-yum install -y kexec-tools
-yum install -y sos
-yum install -y psacct
-yum install -y openssl-devel
-yum install -y httpd-tools
-yum install -y NetworkManager
-yum install -y python-cryptography
-yum install -y python2-pip
-yum install -y python-devel
-yum install -y python-passlib
-yum install -y java-1.8.0-openjdk-headless "@Development Tools"
-yum install -y epel-release
-yum install -y yum-utils
+sudo yum update -y
+sudo yum install -y wget
+sudo yum install -y envsubst
+sudo yum install -y figlet
+sudo yum install -y git
+sudo yum install -y zile
+sudo yum install -y nano
+sudo yum install -y net-tools
+sudo yum install -y docker-1.13.1
+sudo yum install -y bind-utils iptables-services
+sudo yum install -y bridge-utils bash-completion
+sudo yum install -y kexec-tools
+sudo yum install -y sos
+sudo yum install -y psacct
+sudo yum install -y openssl-devel
+sudo yum install -y httpd-tools
+sudo yum install -y NetworkManager
+sudo yum install -y python-cryptography
+sudo yum install -y python2-pip
+sudo yum install -y python-devel
+sudo yum install -y python-passlib
+sudo yum install -y java-1.8.0-openjdk-headless "@Development Tools"
+sudo yum install -y epel-release
+sudo yum install -y sudo yum-utils
 
 echo "Checking Network"
 systemctl | grep "NetworkManager.*running"
