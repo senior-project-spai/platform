@@ -1,8 +1,6 @@
 #!/bin/bash
 echo "Installing Prerequisites"
 
-source ../settings.sh
-
 cat >>/etc/hosts<<EOF
 ${OKD_MASTER_IP} ${OKD_MASTER_HOSTNAME} console console.${DOMAIN}
 ${OKD_WORKER_NODE_1_IP} ${OKD_WORKER_NODE_1_HOSTNAME}
