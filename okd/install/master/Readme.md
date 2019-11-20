@@ -25,4 +25,8 @@ ssh-copy-id root@${OKD_WORKER_NODE_3_HOSTNAME}
 ssh-copy-id root@${OKD_WORKER_NODE_4_HOSTNAME}
 ssh-copy-id root@${OKD_WORKER_NODE_5_HOSTNAME}
 
-sudo ./install_master.sh
+sudo ../install_pre.sh
+
+sudo ./install_ansible.sh
+
+./install_master.sh

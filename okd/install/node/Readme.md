@@ -16,4 +16,4 @@ cd ~/platform/okd/install/node
 
 ./add_hosts.sh
 
-sudo ./install_node.sh
+sudo ../install_pre.sh

@@ -1,65 +1,8 @@
 #!/bin/bash
 
-hostnamectl set-hostname master01.spai.ml
-
-echo "Installing Prerequisites"
-# install the following base packages
-yum update -y
-yum install -y wget
-yum install -y envsubst
-yum install -y figlet
-yum install -y git
-yum install -y zile
-yum install -y nano
-yum install -y net-tools
-yum install -y docker-1.13.1
-yum install -y bind-utils iptables-services
-yum install -y bridge-utils bash-completion
-yum install -y kexec-tools
-yum install -y sos
-yum install -y psacct
-yum install -y openssl-devel
-yum install -y httpd-tools
-yum install -y NetworkManager
-yum install -y python-cryptography
-yum install -y python2-pip
-yum install -y python-devel
-yum install -y python-passlib
-yum install -y java-1.8.0-openjdk-headless "@Development Tools"
-yum install -y epel-release
-yum install -y yum-utils
-
-
-echo "Checking Network"
-systemctl | grep "NetworkManager.*running"
-if [ $? -eq 1 ]; then
-        systemctl start NetworkManager
-        systemctl enable NetworkManager
-fi
-
-echo "Enabling Docker"
-systemctl restart docker
-systemctl enable docker
-
-echo "Check /etc/hosts"
-cat /etc/hosts
-
-echo "Check hostname"
-hostnamectl
-
-echo "Check docker"
-sudo docker ps
-
-sleep 10
-
-# install the packages for Ansible
-echo "install the packages for Ansible"
-yum -y --enablerepo=epel install ansible pyOpenSSL
-curl -o ansible.rpm https://releases.ansible.com/ansible/rpm/release/epel-7-x86_64/ansible-2.6.5-1.el7.ans.noarch.rpm
-yum -y --enablerepo=epel install ansible.rpm
-
 # checkout openshift-ansible repository
 echo "checking out openshift repo at branch release-${OKD_VERSION}"
+cd ${PLATFORM_REPO_FOLDER_LOCATION}/../..
 [ ! -d openshift-ansible ] && git clone https://github.com/openshift/openshift-ansible.git
 cd openshift-ansible 
 OPENSHIFT_ANSIBLE_REPO_PATH=$PWD
@@ -72,15 +15,15 @@ mkdir -p /etc/origin/master/
 touch /etc/origin/master/htpasswd
 
 echo "Downloading inventory file to ~"
-cd ~
+cd ${PLATFORM_REPO_FOLDER_LOCATION}/../..
 wget https://raw.githubusercontent.com/senior-project-spai/platform/master/okd/inventory_template.ini
 envsubst < inventory_template.ini > inventory.ini
 
 echo "Running ansible-playbook with prerequisites.yml config"
-ansible-playbook -i ~/inventory.ini ${OPENSHIFT_ANSIBLE_REPO_PATH}/playbooks/prerequisites.yml
+ansible-playbook -i ${PLATFORM_REPO_FOLDER_LOCATION}/../../inventory.ini ${OPENSHIFT_ANSIBLE_REPO_PATH}/playbooks/prerequisites.yml
 
 echo "Running ansible-playbook with deploy_cluster.yml config"
-ansible-playbook -i ~/inventory.ini ${OPENSHIFT_ANSIBLE_REPO_PATH}/playbooks/deploy_cluster.yml
+ansible-playbook -i ${PLATFORM_REPO_FOLDER_LOCATION}/../../inventory.ini ${OPENSHIFT_ANSIBLE_REPO_PATH}/playbooks/deploy_cluster.yml
 
 echo "adding ${OKD_USERNAME} to okd with password ${OKD_PASSWORD}"
 htpasswd -b /etc/origin/master/htpasswd ${OKD_USERNAME} ${OKD_PASSWORD}
