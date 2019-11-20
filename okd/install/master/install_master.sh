@@ -50,6 +50,8 @@ hostnamectl
 echo "Check docker"
 sudo docker ps
 
+sleep 10
+
 echo "Adding master's public key to all server in cluster"
 ssh-copy-id root@${OKD_MASTER_HOSTNAME}
 ssh-copy-id root@${OKD_WORKER_NODE_1_HOSTNAME}
