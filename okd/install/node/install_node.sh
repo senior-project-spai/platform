@@ -48,4 +48,7 @@ cat /etc/hosts
 echo "Check hostname"
 hostnamectl
 
+echo "Check docker"
+sudo docker ps
+
 echo "Finish"
