@@ -1,6 +1,6 @@
 #!/bin/bash
 
-hostnamectl set-hostname master.spai.ml
+hostnamectl set-hostname master01.spai.ml
 
 ../common/prerequisites.sh
 
