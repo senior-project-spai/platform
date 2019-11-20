@@ -1,7 +1,21 @@
-generate key with this command
+From Bare Server
 
 ssh-keygen
 
-then
+sudo yum install -y git
 
-./install_master.sh
+git clone https://github.com/senior-project-spai/platform
+
+cd platform/okd
+
+sudo chmod +x -R install
+
+cd install
+
+source settings.sh
+
+cd ~/platform/okd/install/master
+
+./add_hosts.sh
+
+sudo ./install_master.sh
