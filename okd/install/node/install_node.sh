@@ -5,16 +5,6 @@ read -p "Enter Hostname: "  HOSTNAME
 hostnamectl set-hostname ${HOSTNAME}
 
 echo "Installing Prerequisites"
-# cat >>/etc/hosts<<EOF
-# ${OKD_MASTER_IP} ${OKD_MASTER_HOSTNAME} console console.${DOMAIN}
-# ${OKD_WORKER_NODE_1_IP} ${OKD_WORKER_NODE_1_HOSTNAME}
-# ${OKD_WORKER_NODE_2_IP} ${OKD_WORKER_NODE_2_HOSTNAME}
-# ${OKD_WORKER_NODE_3_IP} ${OKD_WORKER_NODE_3_HOSTNAME}
-# ${OKD_WORKER_NODE_4_IP} ${OKD_WORKER_NODE_4_HOSTNAME}
-# ${OKD_WORKER_NODE_5_IP} ${OKD_WORKER_NODE_5_HOSTNAME}
-# EOF
-
-
 # install the following base packages
 sudo yum update -y
 sudo yum install -y wget
@@ -51,5 +41,11 @@ fi
 echo "Enabling Docker"
 systemctl restart docker
 systemctl enable docker
+
+echo "Check /etc/hosts"
+cat /etc/hosts
+
+echo "Check hostname"
+hostnamectl
 
 echo "Finish"
