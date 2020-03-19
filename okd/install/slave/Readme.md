@@ -1,5 +1,5 @@
-From Bare Server
-
+## Install From Bare Server
+```
 sudo yum install -y git
 
 git clone https://github.com/senior-project-spai/platform
@@ -11,3 +11,4 @@ source platform/okd/install/settings.sh
 platform/okd/install/add_hosts.sh
 
 platform/okd/install/install_pre.sh
+```

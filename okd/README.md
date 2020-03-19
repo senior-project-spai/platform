@@ -1,15 +1,7 @@
 # OKD
 
-give execute privillege to all script in install folder
+## Installation
+Goto install folder and do as directed in Readme.
 
-chmod +x -R install
-
-then 
-
-adjust value in setting.sh
-
-then 
-
-install node or master folder
 
 credit: https://github.com/SubhakarKotta/okd-installation-centos

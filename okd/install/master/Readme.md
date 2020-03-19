@@ -1,5 +1,5 @@
-From Bare Server
-
+## Install From Bare Server
+```
 sudo ssh-keygen
 
 sudo yum install -y git
@@ -31,3 +31,4 @@ sudo platform/okd/install/master/install_ansible.sh
 platform/okd/install/master/install_master.sh
 
 sudo platform/okd/install/master/install_post.sh
+```
