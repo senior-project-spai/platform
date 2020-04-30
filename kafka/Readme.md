@@ -1,1 +1,0 @@
-Make sure you have 2 pv that at least 100 Gi before execute install.sh
