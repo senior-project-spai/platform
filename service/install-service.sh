@@ -123,15 +123,12 @@ kubectl delete pods -l app=kafka-topic-provisioner
 
 # Deploy service
 echo "Deploy service"
-kubectl apply -n spai -f https://raw.githubusercontent.com/senior-project-spai/cashier-web/master/deploy.yaml
-kubectl apply -n spai -f https://raw.githubusercontent.com/senior-project-spai/image-input-react/master/deploy.yaml
 kubectl apply -n spai -f https://raw.githubusercontent.com/senior-project-spai/race-detection/master/deploy.yaml
 kubectl apply -n spai -f https://raw.githubusercontent.com/senior-project-spai/gender-detection/master/deploy.yaml
 kubectl apply -n spai -f https://raw.githubusercontent.com/senior-project-spai/age-prediction/master/deploy.yaml
 kubectl apply -n spai -f https://raw.githubusercontent.com/senior-project-spai/face-image-input-api/master/deploy.yaml
 kubectl apply -n spai -f https://raw.githubusercontent.com/senior-project-spai/Kafka2MYSQL-Service/master/deploy.yaml
 kubectl apply -n spai -f https://raw.githubusercontent.com/senior-project-spai/get-photo-from-s3/master/deploy.yaml
-kubectl apply -n spai -f https://raw.githubusercontent.com/senior-project-spai/face-result-react/master/deploy.yaml
 kubectl apply -n spai -f https://raw.githubusercontent.com/senior-project-spai/face-result-api-fastapi/master/deploy.yaml
 kubectl apply -n spai -f https://raw.githubusercontent.com/senior-project-spai/cashier-api/master/deploy.yaml
 
@@ -141,3 +138,54 @@ rm cashier.sql
 rm strimzi-0.17.0.tar.gz
 rm -rf strimzi-0.17.0/
 rm get_helm.sh
+
+# For Web Service you need to fix api link from each repo then deploy by yourself
+echo "For Web Service you need to fix api link from each repo then deploy by yourself"
+
+# If you're using K8S in GCloud to as directed but if you use OKD jump to okd section
+
+# https://github.com/senior-project-spai/image-input-react
+# Change ENDPOINT to http://$(kubectl get svc face-image-input-api-service -n spai -o jsonpath={.status.loadBalancer.ingress[0].ip})/_api/face
+
+# https://github.com/senior-project-spai/cashier-web
+# Change apiLink to http://$(kubectl get svc cashier-web-service -n spai -o jsonpath={.status.loadBalancer.ingress[0].ip})/_api/
+# Change piCameraLink to http://{RASPBERRY_PI_IP_ADDRESS}:8080/detection
+
+# https://github.com/senior-project-spai/face-result-react
+# Change DASHBOARD_URL to http://$(kubectl get svc grafana -n spai -o jsonpath={.status.loadBalancer.ingress[0].ip})/d/9fXWS0TWz/cashier?orgId=1&refresh=5s&theme=light
+# Change FACE_RESULT_API_URL to http://$(kubectl get svc face-result-api-service -n spai -o jsonpath={.status.loadBalancer.ingress[0].ip})/_api/result/
+# Change FACE_RESULT_API_CSV_URL to http://$(kubectl get svc face-result-api-service -n spai -o jsonpath={.status.loadBalancer.ingress[0].ip})/_api/result/csv
+
+# If you're using OKD use route with service to access api
+
+# https://github.com/senior-project-spai/image-input-react
+# oc new-app https://github.com/senior-project-spai/image-input-react --name image-input-react -n spai
+# oc expose svc/image-input-react -n spai
+# oc expose svc/face-image-input-api-service
+# oc expose svc/image-input-api
+# oc set env buildConfig/image-input-react REACT_APP_API_ENDPOINT=http://$(oc get route face-image-input-api-service -o jsonpath={.spec.host})/_api/face
+# oc set env buildConfig/image-input-react REACT_APP_OBJECT_API_ENDPOINT=http://$(oc get route image-input-api -o jsonpath={.spec.host})/_api/object
+# oc start-build image-input-react
+
+# https://github.com/senior-project-spai/cashier-web
+# oc new-app https://github.com/senior-project-spai/cashier-web --name cashier-web -n spai
+# oc expose svc/cashier-web -n spai
+# oc expose svc/cashier-api-service
+# oc set env buildConfig/cashier-web REACT_APP_CASHIER_API_LINK=http://$(oc get route cashier-api-service -o jsonpath={.spec.host})/_api/
+# oc set env buildConfig/cashier-web REACT_APP_PI_CAMERA_LINK=http://{RASPBERRY_PI_IP_ADDRESS}:8080/detection
+# oc start-build cashier-web
+
+# https://github.com/senior-project-spai/face-result-react
+# oc new-app https://github.com/senior-project-spai/face-result-react --name face-result-react -n spai
+# oc expose svc/face-result-react -n spai
+# oc expose svc/grafana
+# oc expose svc/face-result-api-service
+# oc set env buildConfig/face-result-react REACT_APP_DASHBOARD_URL=http://$(oc get route grafana -o jsonpath={.spec.host})/d/9fXWS0TWz/cashier\?orgId=1\&refresh=5s\&theme=light
+# oc set env buildConfig/face-result-react REACT_APP_FACE_RESULT_API_URL=http://$(oc get route face-result-api-service -o jsonpath={.spec.host})/_api/result/
+# oc set env buildConfig/face-result-react REACT_APP_FACE_RESULT_API_CSV_URL=http://$(oc get route face-result-api-service -o jsonpath={.spec.host})/_api/result/csv
+# oc start-build face-result-react
+
+
+# kubectl apply -n spai -f https://raw.githubusercontent.com/senior-project-spai/cashier-web/master/deploy.yaml
+# kubectl apply -n spai -f https://raw.githubusercontent.com/senior-project-spai/image-input-react/master/deploy.yaml
+# kubectl apply -n spai -f https://raw.githubusercontent.com/senior-project-spai/face-result-react/master/deploy.yaml
