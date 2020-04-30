@@ -40,7 +40,7 @@ kubectl create configmap kafka-topic -n spai \
 echo "Deploy MariaDB(instead of Mysql) from Helm"
 helm repo add bitnami https://charts.bitnami.com/bitnami
 helm install galera bitnami/mariadb-galera -f https://gist.githubusercontent.com/supakornbabe/a3af5770ab11aae75bb34e676ee70431/raw/54a1b085a688b246b3eef93bdac89d7856651cc2/value.yaml --wait
-kubectl apply -f https://gist.githubusercontent.com/supakornbabe/25e462e6b5038513ac56d92eb974d022/raw/7a26a1d80a7f6e41fad10529e968883bcab16c91/mysql-svc.yaml -n spai
+kubectl apply -f https://gist.githubusercontent.com/supakornbabe/25e462e6b5038513ac56d92eb974d022/raw/05b68758d693fd12dee05084bbf1ecce1b9ad8f8/mysql-svc.yaml -n spai
 wget https://raw.githubusercontent.com/senior-project-spai/database_schema/master/cashier.sql
 kubectl exec -it galera-mariadb-galera-0 -n spai \
 -- mysql -u root -p$(kubectl get secret --namespace spai galera-mariadb-galera -o jsonpath="{.data.mariadb-root-password}" | base64 --decode) < cashier.sql  
