@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# checkout openshift-ansible repository
 echo "checking out openshift repo at branch release-${OKD_VERSION}"
 cd ${PLATFORM_REPO_FOLDER_LOCATION}/../..
 [ ! -d openshift-ansible ] && git clone https://github.com/openshift/openshift-ansible.git
@@ -24,6 +23,9 @@ ansible-playbook -i ${PLATFORM_REPO_FOLDER_LOCATION}/../../inventory.ini ${OPENS
 
 echo "Running ansible-playbook with deploy_cluster.yml config"
 ansible-playbook -i ${PLATFORM_REPO_FOLDER_LOCATION}/../../inventory.ini ${OPENSHIFT_ANSIBLE_REPO_PATH}/playbooks/deploy_cluster.yml
+
+echo "Running ansible-playbook to enable hawkular matrics"
+ansible-playbook -i ${PLATFORM_REPO_FOLDER_LOCATION}/../../inventory.ini ${OPENSHIFT_ANSIBLE_REPO_PATH}/playbooks/openshift-metrics/config.yml -e openshift_metrics_install_metrics=True -e openshift_metrics_hawkular_hostname=hawkular-metrics.apps.spai.ml -e openshift_metrics_cassandra_storage_type=pv -e openshift_metrics_cassandra_pvc_size=99Gi -e openshift_metrics_server_install=true
 
 echo "adding ${OKD_USERNAME} to okd with password ${OKD_PASSWORD}"
 htpasswd -b /etc/origin/master/htpasswd ${OKD_USERNAME} ${OKD_PASSWORD}
@@ -53,5 +55,6 @@ echo "Deploying helm3"
 curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get-helm-3 > get_helm.sh
 chmod 700 get_helm.sh
 ./get_helm.sh
+helm version
 
 echo "Finish"
