@@ -31,8 +31,6 @@ export OKD_WORKER_NODE_5_HOSTNAME=node05.spai.ml
 
 #The  below setting will be used to access OKD console https://console.$DOMAIN:$API_PORT"
 #By default we can login using the URL https://console.spai.ml:8443
-#To access URL from your local system we need to configure master host in C:\Windows\System32\drivers\etc\hosts file as below
-#100.10.10.100  console.okd.nip.io
 export DOMAIN=spai.ml
 export API_PORT=8443
 
