@@ -1,7 +1,5 @@
 ## Install From Bare Server
 ```
-sudo ssh-keygen
-
 sudo yum install -y git
 
 git clone https://github.com/senior-project-spai/platform
@@ -13,6 +11,8 @@ source platform/okd/install/settings.sh
 platform/okd/install/add_hosts.sh
 
 sudo platform/okd/install/install_pre.sh
+
+sudo ssh-keygen
 
 ssh-copy-id root@${OKD_MASTER_HOSTNAME}
 
