@@ -30,5 +30,4 @@ sudo platform/okd/install/master/install_ansible.sh
 
 platform/okd/install/master/install_master.sh
 
-sudo platform/okd/install/master/install_post.sh
 ```
