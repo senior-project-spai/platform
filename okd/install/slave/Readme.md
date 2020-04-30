@@ -10,5 +10,5 @@ source platform/okd/install/settings.sh
 
 platform/okd/install/add_hosts.sh
 
-platform/okd/install/install_pre.sh
+sudo platform/okd/install/install_pre.sh
 ```
