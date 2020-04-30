@@ -1,6 +1,6 @@
 #!/bin/bash
 #The below configuration can be edited up on your needs and and please note the it's just an example configuration.
-#We are going to create an OKD cluster with one master and 3 worker nodes.
+#We are going to create an OKD cluster with one master and 5 worker nodes.
 
 #OKD Version
 export OKD_VERSION=3.11
