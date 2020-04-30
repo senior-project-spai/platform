@@ -26,7 +26,6 @@ ssh-copy-id root@${OKD_WORKER_NODE_4_HOSTNAME}
 
 ssh-copy-id root@${OKD_WORKER_NODE_5_HOSTNAME}
 
-
 sudo platform/okd/install/master/install_ansible.sh
 
 platform/okd/install/master/install_master.sh
