@@ -1,6 +1,6 @@
 # Create namespace spai
 echo "Create namespace spai"
-kubectl create ns spai
+oc new-project spai
 oc project spai
 
 oc adm policy add-scc-to-user privileged -z default -n spai
