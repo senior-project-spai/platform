@@ -131,6 +131,8 @@ kubectl apply -n spai -f https://raw.githubusercontent.com/senior-project-spai/K
 kubectl apply -n spai -f https://raw.githubusercontent.com/senior-project-spai/get-photo-from-s3/master/deploy.yaml
 kubectl apply -n spai -f https://raw.githubusercontent.com/senior-project-spai/face-result-api-fastapi/master/deploy.yaml
 kubectl apply -n spai -f https://raw.githubusercontent.com/senior-project-spai/cashier-api/master/deploy.yaml
+kubectl apply -n spai -f https://raw.githubusercontent.com/senior-project-spai/object-detection/master/deploy.yaml
+kubectl apply -n spai -f https://raw.githubusercontent.com/senior-project-spai/image-input-api/master/deploy.yaml
 
 # Cleanup
 echo "Cleanup"
