@@ -1,5 +1,7 @@
 ## Install From Bare Server
 ```
+sudo su
+
 sudo yum install -y git
 
 git clone https://github.com/senior-project-spai/platform
