@@ -7,11 +7,11 @@ export OKD_VERSION=3.11
 
 #OKD Master Node Configuration
 export OKD_MASTER_IP=158.108.38.90
-export OKD_MASTER_HOSTNAME=a2.local
+export OKD_MASTER_HOSTNAME=athena.local
 
 #OKD Worker Node 1 Configuration
 export OKD_WORKER_NODE_1_IP=158.108.38.88
-export OKD_WORKER_NODE_1_HOSTNAME=athena.local
+export OKD_WORKER_NODE_1_HOSTNAME=a2.local
 
 #OKD Worker Node 2 Configuration
 export OKD_WORKER_NODE_2_IP=158.108.38.89
