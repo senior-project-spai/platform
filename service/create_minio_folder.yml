@@ -1,0 +1,9 @@
+- hosts: all
+  tasks:
+  - name: ansible create directory minio
+    file:
+      path: /mnt/nfsshare/minio
+      state: directory
+      mode: 0777
+      owner: nfsnobody
+      group: nfsnobody
