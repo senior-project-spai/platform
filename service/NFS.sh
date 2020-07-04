@@ -47,3 +47,9 @@ sudo chmod 777 /mnt/nfsshare/kafka-1
 sudo chmod 777 /mnt/nfsshare/kafka-2
 sudo chmod 777 /mnt/nfsshare/kafka-3
 oc create -f https://gist.githubusercontent.com/supakornbabe/032dc2fe0b09443e3e5b8d2c9c69d0d3/raw/ed04c4e5c551ef12f2ab49a372f5b3d5ea9af8b2/nfs-kafka.yaml
+
+echo "Creating NFS Folder for mariadb"
+mkdir /mnt/nfsshare/mariadb
+sudo chown nfsnobody:nfsnobody /mnt/nfsshare/mariadb
+sudo chmod 777 /mnt/nfsshare/mariadb
+oc create -f https://gist.githubusercontent.com/supakornbabe/032dc2fe0b09443e3e5b8d2c9c69d0d3/raw/d7054e8924160c197dd4e36590a60dbea322ad8b/nfs-mariadb.yaml
