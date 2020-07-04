@@ -52,4 +52,10 @@ echo "Creating NFS Folder for mariadb"
 mkdir /mnt/nfsshare/mariadb
 sudo chown nfsnobody:nfsnobody /mnt/nfsshare/mariadb
 sudo chmod 777 /mnt/nfsshare/mariadb
-oc create -f https://gist.githubusercontent.com/supakornbabe/032dc2fe0b09443e3e5b8d2c9c69d0d3/raw/d7054e8924160c197dd4e36590a60dbea322ad8b/nfs-mariadb.yaml
+mkdir /mnt/nfsshare/mariadb-2
+sudo chown nfsnobody:nfsnobody /mnt/nfsshare/mariadb-2
+sudo chmod 777 /mnt/nfsshare/mariadb-2
+mkdir /mnt/nfsshare/mariadb-3
+sudo chown nfsnobody:nfsnobody /mnt/nfsshare/mariadb-3
+sudo chmod 777 /mnt/nfsshare/mariadb-3
+oc create -f https://gist.githubusercontent.com/supakornbabe/032dc2fe0b09443e3e5b8d2c9c69d0d3/raw/80f1b1ff962168522614e3affa7a56c0d6b2d083/nfs-mariadb.yaml
