@@ -145,7 +145,7 @@ rm get_helm.sh
 # For Web Service you need to fix api link from each repo then deploy by yourself
 echo "For Web Service you need to fix api link from each repo then deploy by yourself"
 
-# If you're using K8S in GCloud to as directed but if you use OKD jump to okd section
+# If you're using K8S in GCloud to as directed
 
 # https://github.com/senior-project-spai/image-input-react
 # Change ENDPOINT to http://$(kubectl get svc face-image-input-api-service -n spai -o jsonpath={.status.loadBalancer.ingress[0].ip})/_api/face

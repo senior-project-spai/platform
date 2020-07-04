@@ -6,28 +6,28 @@
 export OKD_VERSION=3.11
 
 #OKD Master Node Configuration
-export OKD_MASTER_IP=158.108.38.70
-export OKD_MASTER_HOSTNAME=master01.spai.ml
+export OKD_MASTER_IP=158.108.38.90
+export OKD_MASTER_HOSTNAME=athena
 
 #OKD Worker Node 1 Configuration
-export OKD_WORKER_NODE_1_IP=158.108.38.71
-export OKD_WORKER_NODE_1_HOSTNAME=node01.spai.ml
+export OKD_WORKER_NODE_1_IP=158.108.38.88
+export OKD_WORKER_NODE_1_HOSTNAME=a2
 
 #OKD Worker Node 2 Configuration
-export OKD_WORKER_NODE_2_IP=158.108.38.72
-export OKD_WORKER_NODE_2_HOSTNAME=node02.spai.ml
+export OKD_WORKER_NODE_2_IP=158.108.38.89
+export OKD_WORKER_NODE_2_HOSTNAME=a1
 
 #OKD Worker Node 3 Configuration
-export OKD_WORKER_NODE_3_IP=158.108.38.73
-export OKD_WORKER_NODE_3_HOSTNAME=node03.spai.ml
+export OKD_WORKER_NODE_3_IP=158.108.38.91
+export OKD_WORKER_NODE_3_HOSTNAME=a3
 
 #OKD Worker Node 4 Configuration
-export OKD_WORKER_NODE_4_IP=158.108.38.74
-export OKD_WORKER_NODE_4_HOSTNAME=node04.spai.ml
+export OKD_WORKER_NODE_4_IP=158.108.38.92
+export OKD_WORKER_NODE_4_HOSTNAME=a4
 
 #OKD Worker Node 5 Configuration
-export OKD_WORKER_NODE_5_IP=158.108.38.75
-export OKD_WORKER_NODE_5_HOSTNAME=node05.spai.ml
+export OKD_WORKER_NODE_5_IP=158.108.38.93
+export OKD_WORKER_NODE_5_HOSTNAME=a5
 
 #The  below setting will be used to access OKD console https://console.$DOMAIN:$API_PORT"
 #By default we can login using the URL https://console.spai.ml:8443
