@@ -126,6 +126,15 @@ kubectl apply -n spai -f https://raw.githubusercontent.com/senior-project-spai/o
 kubectl apply -n spai -f https://raw.githubusercontent.com/senior-project-spai/image-input-api/master/deploy.yaml
 kubectl apply -n spai -f https://raw.githubusercontent.com/senior-project-spai/object-result-api/master/deploy.yaml
 
+
+oc expose svc/object-result-api
+oc expose svc/image-input-api
+oc expose svc/cashier-api
+oc expose svc/face-result-api
+oc expose svc/face-image-input-api
+oc expose svc/grafana
+oc expose svc/get-photo-from-s3
+
 # Cleanup
 echo "Cleanup"
 rm cashier.sql
@@ -140,8 +149,6 @@ oc new-app https://github.com/senior-project-spai/image-input-react --name image
 --build-env REACT_APP_API_ENDPOINT=http://$(oc get route face-image-input-api -o jsonpath={.spec.host})/_api/face \
 --build-env REACT_APP_OBJECT_API_ENDPOINT=http://$(oc get route image-input-api -o jsonpath={.spec.host})/_api/object
 oc expose svc/image-input-react
-oc expose svc/face-image-input-api
-oc expose svc/image-input-api
 oc start-build image-input-react
 
 # # https://github.com/senior-project-spai/cashier-web
@@ -149,7 +156,6 @@ oc new-app https://github.com/senior-project-spai/cashier-web --name cashier-web
 --build-env REACT_APP_CASHIER_API_LINK=http://$(oc get route cashier-api -o jsonpath={.spec.host})/_api/ \
 --build-env REACT_APP_PI_CAMERA_LINK=http://${RASPBERRY_PI_IP_ADDRESS}:8080/detection
 oc expose svc/cashier-web
-oc expose svc/cashier-api
 oc start-build cashier-web
 
 # # https://github.com/senior-project-spai/face-result-react
@@ -159,6 +165,5 @@ oc new-app https://github.com/senior-project-spai/face-result-react --name face-
 --build-env REACT_APP_FACE_RESULT_API_CSV_URL=http://$(oc get route face-result-api -o jsonpath={.spec.host})/_api/result/csv
 oc expose svc/face-result-react
 oc expose svc/grafana
-oc expose svc/face-result-api
 oc start-build face-result-react
 
