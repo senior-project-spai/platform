@@ -60,7 +60,9 @@ sudo chown nfsnobody:nfsnobody /mnt/nfsshare/mariadb-3
 sudo chmod 777 /mnt/nfsshare/mariadb-3
 oc create -f https://gist.githubusercontent.com/supakornbabe/032dc2fe0b09443e3e5b8d2c9c69d0d3/raw/80f1b1ff962168522614e3affa7a56c0d6b2d083/nfs-mariadb.yaml
 
-echo "Creating NFS Folder for minio"
+echo "Creating NFS Folder for minio on all server"
 mkdir /mnt/nfsshare/minio
 sudo chown nfsnobody:nfsnobody /mnt/nfsshare/minio
 sudo chmod 777 /mnt/nfsshare/minio
+
+oc create -f https://gist.githubusercontent.com/supakornbabe/032dc2fe0b09443e3e5b8d2c9c69d0d3/raw/05329ed84bbcd1bf88920de5ab8bc08452134e4f/nfs-minio.yaml
