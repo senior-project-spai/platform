@@ -50,7 +50,7 @@ kubectl exec -it galera-mariadb-galera-0 -n spai \
 
 # Install Minio
 echo "Install Minio"
-helm install minio -f https://gist.githubusercontent.com/supakornbabe/e6cd38d9aa575f91c13b9f219d78b90c/raw/ce8f5e9732f50df117f54eb54005bddc4c6ab091/minio-values.yaml stable/minio \
+helm install minio -f https://gist.githubusercontent.com/supakornbabe/e6cd38d9aa575f91c13b9f219d78b90c/raw/b5f317471c626d905fd78effb3979583c3f19885/minio-values.yaml stable/minio \
 --wait 
 
 # Add Mysql(MariaDB) Connection Configmap
