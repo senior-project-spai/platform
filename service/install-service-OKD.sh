@@ -4,6 +4,8 @@ oc new-project spai
 oc project spai
 
 oc adm policy add-scc-to-user privileged -z default -n spai
+oc adm policy add-scc-to-user privileged -z grafana -n spai
+oc adm policy add-scc-to-user privileged -z grafana-test -n spai
 
 # Install Helm
 echo "Install Helm"
