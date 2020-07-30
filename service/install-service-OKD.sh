@@ -77,7 +77,7 @@ kubectl create configmap s3-key -n spai \
 --from-literal=S3_ACCESS_KEY=$(kubectl get secret --namespace spai minio -o jsonpath="{.data.accesskey}" | base64 --decode) \
 --from-literal=S3_SECRET_KEY=$(kubectl get secret --namespace spai minio -o jsonpath="{.data.secretkey}" | base64 --decode)
 kubectl create configmap s3-endpoint -n spai \
---from-literal=S3_ENDPOINT=http://athena.local:9000
+--from-literal=S3_ENDPOINT=http://minio.spai.svc:9000
 kubectl create configmap s3-bucket -n spai \
 --from-literal=bucket-face-image=face-image  
 
