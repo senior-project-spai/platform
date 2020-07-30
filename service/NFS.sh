@@ -76,7 +76,10 @@ oc create -f https://gist.githubusercontent.com/supakornbabe/032dc2fe0b09443e3e5
 
 
 echo "Creating NFS Folder for mysql"
-sudo mkdir /mnt/nfsshare/mysql
-sudo chown nfsnobody:nfsnobody /mnt/nfsshare/mysql
-sudo chmod 777 /mnt/nfsshare/mysql
-oc create -f https://gist.githubusercontent.com/supakornbabe/e75f75c3c253fbd2e3596af079e651d3/raw/731a059d75daaa49a59832d535ea89ea6be90fe1/mysql-nfs.yaml
+sudo mkdir /mnt/nfsshare/mysql0
+sudo chown nfsnobody:nfsnobody /mnt/nfsshare/mysql0
+sudo chmod 777 /mnt/nfsshare/mysql0
+sudo mkdir /mnt/nfsshare/mysql1
+sudo chown nfsnobody:nfsnobody /mnt/nfsshare/mysql1
+sudo chmod 777 /mnt/nfsshare/mysql1
+oc create -f https://gist.githubusercontent.com/supakornbabe/e75f75c3c253fbd2e3596af079e651d3/raw/4a2aafc146235c79332505e612fe7833c59f4e4e/mysql-nfs.yaml
