@@ -40,16 +40,16 @@ oc adm policy add-cluster-role-to-user cluster-admin ${OKD_USERNAME}
 # helm init --service-account tiller --upgrade
 
 echo "#####################################################################"
-echo "* Your console is https://console.${DOMAIN}:${API_PORT}"
+echo "* Your console is https://console.${DOMAIN}:8443"
 echo "* Your username is ${OKD_USERNAME} "
 echo "* Your password is ${OKD_PASSWORD} "
 echo "*"
 echo "* Login using:"
 echo "*"
-echo "$ oc login -u ${OKD_USERNAME} -p ${OKD_PASSWORD} https://console.${DOMAIN}:${API_PORT}/"
+echo "$ oc login -u ${OKD_USERNAME} -p ${OKD_PASSWORD} https://console.${DOMAIN}:8443/"
 echo "#####################################################################"
 
-oc login -u ${OKD_USERNAME} -p ${OKD_PASSWORD} https://console.${DOMAIN}:${API_PORT}/
+oc login -u ${OKD_USERNAME} -p ${OKD_PASSWORD} https://console.${DOMAIN}:8443/
 
 echo "Deploying helm3"
 curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get-helm-3 > get_helm.sh
