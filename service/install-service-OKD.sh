@@ -85,7 +85,7 @@ echo "Install Grafana"
 helm repo add stable https://kubernetes-charts.storage.googleapis.com
 helm install grafana stable/grafana --namespace spai \
 -f https://gist.githubusercontent.com/supakornbabe/d511c74903b16062860735711da1bedd/raw/65b7cd5aeb8a7fdda4afeeaa55d0a105ade0fbd5/values.yaml \
---set datasources."datasources\.yaml".datasources[0].password=$(kubectl get secret --namespace spai galera-mariadb-galera -o jsonpath="{.data.mariadb-root-password}" | base64 --decode) \
+--set datasources."datasources\.yaml".datasources[0].password=$(kubectl get secret --namespace spai mysql -o jsonpath="{.data.mysql-root-password}" | base64 --decode) \
 --wait  
 
 echo "If script below has error wait kafka,zookeeper to be finish deployment and run again"
