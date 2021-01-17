@@ -22,11 +22,9 @@ echo "Strimzi Operator"
 helm repo add strimzi https://strimzi.io/charts/
 helm install kafka strimzi/strimzi-kafka-operator --namespace spai --wait
 echo "Kafka Cluster"
-wget https://github.com/strimzi/strimzi-kafka-operator/releases/download/0.17.0/strimzi-0.17.0.tar.gz
-tar xzf strimzi-0.17.0.tar.gz
-cd strimzi-0.17.0/
-sed -i 's/name: .*/name: kafka-cluster/' examples/kafka/kafka-persistent.yaml
-kubectl apply -f examples/kafka/kafka-persistent.yaml -n spai
+wget wget https://raw.githubusercontent.com/strimzi/strimzi-kafka-operator/master/examples/kafka/kafka-persistent.yaml
+sed -i 's/name: my-cluster/name: kafka-cluster/' kafka-persistent.yaml
+kubectl apply -f kafka-persistent.yaml -n spai
 echo "Add ConfigMap for Kafka"
 kubectl create configmap kafka-endpoint -n spai \
 --from-literal=KAFKA_HOST=kafka-cluster-kafka-bootstrap.spai.svc \
