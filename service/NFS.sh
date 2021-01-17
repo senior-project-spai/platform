@@ -13,8 +13,8 @@ sudo systemctl start nfs-server.service
 sudo mkdir /mnt/nfsshare
 sudo chown nfsnobody:nfsnobody /mnt/nfsshare
 sudo chmod 777 /mnt/nfsshare
-echo "Adding /etc/exports settings (Work only in KU Network)"
-echo "/mnt/nfsshare 158.108.0.0/16(rw,sync,no_root_squash)" | sudo tee -a /etc/exports
+echo "Adding /etc/exports settings"
+echo "/mnt/nfsshare 192.168.0.0/16(rw,sync,no_root_squash)" | sudo tee -a /etc/exports
 sudo exportfs -a
 
 echo "Creating NFS Folder for Zookeeper"
