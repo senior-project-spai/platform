@@ -65,7 +65,7 @@ sudo mkdir /mnt/nfsshare/minio
 sudo chown nfsnobody:nfsnobody /mnt/nfsshare/minio
 sudo chmod 777 /mnt/nfsshare/minio
 
-oc create -f https://gist.githubusercontent.com/supakornbabe/032dc2fe0b09443e3e5b8d2c9c69d0d3/raw/05329ed84bbcd1bf88920de5ab8bc08452134e4f/nfs-minio.yaml
+oc create -f https://gist.githubusercontent.com/supakornbabe/7b5211e1a72705771df3f3a223395766/raw/ad5b409bbd6bf5f49318459bdc8a81242b58c625/minio-nfs.yaml
 
 echo "Creating NFS Folder for grafana"
 sudo mkdir /mnt/nfsshare/grafana
