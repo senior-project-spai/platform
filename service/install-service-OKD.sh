@@ -61,14 +61,14 @@ echo "Add Mysql(MariaDB) Connection Configmap"
 kubectl create configmap mysql-connections -n spai \
 --from-literal=MYSQL_DB=cashier \
 --from-literal=MYSQL_HOST=mysql-service.spai.svc \
---from-literal=MYSQL_PASS=$(kubectl get secret --namespace spai galera-mariadb-galera -o jsonpath="{.data.mariadb-root-password}" | base64 --decode) \
+--from-literal=MYSQL_PASS=$(kubectl get secret --namespace spai mysql -o jsonpath="{.data.mysql-root-password}" | base64 --decode) \
 --from-literal=MYSQL_PORT=3306 \
 --from-literal=MYSQL_USER=root 
 Add Master Connection
 kubectl create configmap mysql-master-connections -n spai \
 --from-literal=MYSQL_MASTER_DB=cashier \
 --from-literal=MYSQL_MASTER_HOST=mysql-service.spai.svc \
---from-literal=MYSQL_MASTER_PASS=$(kubectl get secret --namespace spai galera-mariadb-galera -o jsonpath="{.data.mariadb-root-password}" | base64 --decode) \
+--from-literal=MYSQL_MASTER_PASS=$(kubectl get secret --namespace spai mysql -o jsonpath="{.data.mysql-root-password}" | base64 --decode) \
 --from-literal=MYSQL_MASTER_PORT=3306 \
 --from-literal=MYSQL_MASTER_USER=root   
 
