@@ -49,7 +49,7 @@ helm install mysql -f https://gist.githubusercontent.com/supakornbabe/5e732145cb
 kubectl apply -f https://gist.githubusercontent.com/supakornbabe/25e462e6b5038513ac56d92eb974d022/raw/6d0b3db88ce28ea80466be7d00b8fbac9ef41635/mysql-svc.yaml -n spai
 wget https://raw.githubusercontent.com/senior-project-spai/database_schema/master/cashier.sql
 kubectl exec -it $(oc get pods --selector=app=mysql -o jsonpath="{.items[0].metadata.name}") -n spai \
--- mysql -u root -p$(kubectl get secret --namespace spai galera-mariadb-galera -o jsonpath="{.data.mariadb-root-password}" | base64 --decode) < cashier.sql  
+-- mysql -u root -p$(kubectl get secret --namespace spai mysql -o jsonpath="{.data.mysql-root-password}" | base64 --decode) < cashier.sql  
 
 # Install Minio
 echo "Install Minio"
