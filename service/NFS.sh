@@ -71,7 +71,7 @@ sudo mkdir /mnt/nfsshare/grafana
 sudo chown nfsnobody:nfsnobody /mnt/nfsshare/grafana
 sudo chmod 777 /mnt/nfsshare/grafana
 
-oc create -f https://gist.githubusercontent.com/supakornbabe/032dc2fe0b09443e3e5b8d2c9c69d0d3/raw/ccfdf6b783c3f17b48962ccc0507a1155e387bf4/nfs-grafana.yaml
+oc create -f https://gist.githubusercontent.com/supakornbabe/dbfcb74d03affc1ea80472710b964ddc/raw/23b3d0cb307332ebf9ceeb3d0f4f7a7e109d4257/grafana-nfs.yaml
 
 
 echo "Creating NFS Folder for mysql"
