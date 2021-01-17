@@ -33,7 +33,6 @@ echo "Creating NFS Folder for hawkular"
 sudo mkdir /mnt/nfsshare/hawkular
 sudo chown nfsnobody:nfsnobody /mnt/nfsshare/hawkular
 sudo chmod 777 /mnt/nfsshare/hawkular
-
 oc create -f https://gist.githubusercontent.com/supakornbabe/032dc2fe0b09443e3e5b8d2c9c69d0d3/raw/1d437e3ff7e5ed59a7a2a9c468ab2973b94742f1/nfs-hawkular.yaml
 
 echo "Creating NFS Folder for Kafka"
@@ -46,7 +45,7 @@ sudo chown nfsnobody:nfsnobody /mnt/nfsshare/kafka-3
 sudo chmod 777 /mnt/nfsshare/kafka-1
 sudo chmod 777 /mnt/nfsshare/kafka-2
 sudo chmod 777 /mnt/nfsshare/kafka-3
-oc create -f https://gist.githubusercontent.com/supakornbabe/032dc2fe0b09443e3e5b8d2c9c69d0d3/raw/ed04c4e5c551ef12f2ab49a372f5b3d5ea9af8b2/nfs-kafka.yaml
+oc create -f https://gist.githubusercontent.com/supakornbabe/e34dfebf79b4b84f311d16ed178e4436/raw/e5c27ffc8b238366aca7567de547e005164761d8/kafka-nfs.yaml
 
 echo "Creating NFS Folder for mariadb"
 sudo mkdir /mnt/nfsshare/mariadb
