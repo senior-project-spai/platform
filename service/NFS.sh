@@ -27,13 +27,13 @@ sudo chown nfsnobody:nfsnobody /mnt/nfsshare/zookeeper-3
 sudo chmod 777 /mnt/nfsshare/zookeeper-1
 sudo chmod 777 /mnt/nfsshare/zookeeper-2
 sudo chmod 777 /mnt/nfsshare/zookeeper-3
+oc create -f https://gist.githubusercontent.com/supakornbabe/4168e78abdd2f3cc77af19041b99dbcb/raw/dba2d74dbf022273fd17ffe171381ca5b8ebf93c/zookeeper-nfs.yaml
 
 echo "Creating NFS Folder for hawkular"
 sudo mkdir /mnt/nfsshare/hawkular
 sudo chown nfsnobody:nfsnobody /mnt/nfsshare/hawkular
 sudo chmod 777 /mnt/nfsshare/hawkular
 
-oc create -f https://gist.githubusercontent.com/supakornbabe/032dc2fe0b09443e3e5b8d2c9c69d0d3/raw/1d437e3ff7e5ed59a7a2a9c468ab2973b94742f1/nfs-zookeeper.yaml
 oc create -f https://gist.githubusercontent.com/supakornbabe/032dc2fe0b09443e3e5b8d2c9c69d0d3/raw/1d437e3ff7e5ed59a7a2a9c468ab2973b94742f1/nfs-hawkular.yaml
 
 echo "Creating NFS Folder for Kafka"
